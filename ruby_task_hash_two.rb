@@ -20,7 +20,7 @@ class HashToSym
   end
 end
 
-my_hash = HashToSym.new
+p my_hash = HashToSym.new
 
 my_hash.sym_hash
 

@@ -3,11 +3,11 @@ class MassRand
 	def initialize
 		@massive = Array.new()
 		
-		10.times do
+		40.times do
 			@massive << Time.at(rand * Time.now.to_i).strftime("%d.%m") + " " + rand(-40..40).to_s
 		end
 
-		p @massive
+		puts @massive
 	end
 
 	def create_temp_hash
@@ -16,7 +16,7 @@ class MassRand
 		@massive.each do |elem|
 			temp =  elem.partition(' ').last
 			month = elem[3..4]
-			temp_hash[month] << Integer(temp)
+			temp_hash[month] << temp.to_f
 		end
 
 		p temp_hash
@@ -31,4 +31,4 @@ end
 
 arr = MassRand.new
 
-p arr.create_temp_hash
+puts "Temp  by month #{arr.create_temp_hash}"
