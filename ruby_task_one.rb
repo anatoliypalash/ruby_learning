@@ -4,16 +4,22 @@ class MassFill
 	end
 
 	def sum
-		count = 0
+		display
+		sum = 0
 		@massive.each do |elem|
 			elem.each do |num|
 				if num < 0 
-					count += num
-					puts num
+					sum += num
+					p num
 				end
 			end
 		end
-		puts "Sum = #{count}"
+		puts "Sum = #{sum}"
+	end
+
+	def display
+		@massive.each{|m| puts m.map{|m1| m1.to_s.ljust(3)}.join(" ")}
+		puts
 	end
 end
 
