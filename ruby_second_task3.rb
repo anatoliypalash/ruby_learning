@@ -5,20 +5,22 @@ class ArrayInspect
     @x = gets.to_i
     @sumInStack = 0
     @stack = []
-    @hasher = []
+    @hasher = Hash.new {|h,k| h[k]=[]}
     @min = @arr.length
    # find_pairs
    	populate_subset(@arr, 0, @arr.length-1)
+
+   	p @hasher
 	end
 
 	def populate_subset(data, fromIndex, endIndex)
 		if @sumInStack == @x
-			p @stack
-			
+			#p @stack					
 			if @stack.length < @min
-				p @min = @stack.length	
-				puts
-				@hasher[@min] = @stack
+				@min = @stack.length	
+				@stack.each do |word|
+	    		@hasher[@stack.length] += [word]
+				end
 			end
 		end
 
@@ -26,12 +28,8 @@ class ArrayInspect
 			if @sumInStack + data[i] <= @x
 				@stack << data[i]
 				@sumInStack += data[i]
-
 				populate_subset(data, i+1, endIndex)
 				@sumInStack -= @stack.pop
-			# elsif @sumInStack == @x && @stack.length < @min
-			# 	 puts "Count of elements: #{@stack.length}"
-			# 	 @min = @stack.length
 			end
 		end
 
@@ -56,5 +54,3 @@ end
 arr = ArrayInspect.new
 
 # p @stack
-
- p @hasher
