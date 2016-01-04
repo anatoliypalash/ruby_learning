@@ -7,7 +7,7 @@ class SumNumbers
 		while count < 100  do		   
 		   count +=1
 		   sum += count
-		   puts("Inside the loop i = #{count}" )
+		   #puts("Inside the loop i = #{count}" )
 		end
 
 		puts sum

@@ -1,16 +1,20 @@
 class ArrayInspect
 	def initialize
-		@arr = [1, 4, 45, 6, 10, 8]
+		print "Input array lenght: "
+		arr_len = gets.to_i
+		@arr = Array.new(arr_len) { rand(0..100) }
+		p @arr
 		print "Input X: "
-    @x = gets.to_i
-    @sumInStack = 0
-    @stack = []
-    @hasher = Hash.new {|h,k| h[k]=[]}
-    @min = @arr.length
-   # find_pairs
-   	populate_subset(@arr, 0, @arr.length-1)
+	    @x = gets.to_i
+	    @sumInStack = 0
+	    @stack = []
+	    @hasher = Hash.new {|h,k| h[k]=[]}
+	    @min = @arr.length
+	   	populate_subset(@arr, 0, @arr.length-1)
+	   	p @hasher
 
-   	p @hasher
+	   	puts "Minimum number of elements - #{@hasher.keys.sort.first}"
+    	puts "Maximum number of elements - #{@hasher.keys.sort.last}"
 	end
 
 	def populate_subset(data, fromIndex, endIndex)
@@ -34,23 +38,6 @@ class ArrayInspect
 		end
 
 	end
-
-	# def find_pairs
-	# 	binMap = {}
-	# 	length = @arr.length
-	# 	binMap['max'] = 0
-	# 	for i in 0..length-1
-	# 		temp = @x - @arr[i]
-			
-	# 			print("Pair with given sum #{@x} is (#{@arr[i]}, #{temp}) \n") if (temp >= 0 && binMap[temp] == 1) 
-			
- #       binMap[@arr[i]] = 1;
-	# 	end
-	# 	puts binMap
-	# end
-
 end
 
 arr = ArrayInspect.new
-
-# p @stack
