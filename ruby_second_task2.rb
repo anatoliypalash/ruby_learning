@@ -6,7 +6,7 @@ class StringDelimit
 			arr << str
 			str = str.rpartition('::').first
 		end
-		puts arr
+		p arr
 	end
 end
 

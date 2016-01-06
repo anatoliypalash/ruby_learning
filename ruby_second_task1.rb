@@ -2,7 +2,7 @@ class SumNumbers
 	def initialize
 		
 		count = 0
-		sum = 5
+		sum = 0
 
 		while count < 100  do		   
 		   count +=1

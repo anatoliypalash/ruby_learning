@@ -18,7 +18,7 @@ class ArrayInspect
 	end
 
 	def populate_subset(data, fromIndex, endIndex)
-		if @sumInStack == @x
+		if @sumInStack >= @x
 			#p @stack					
 			if @stack.length < @min
 				@min = @stack.length	
